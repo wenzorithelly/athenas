@@ -1,0 +1,20 @@
+<form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <input formControlName="name" id="name">
+  </div>
+  <div>
+    <label for="age">Age:</label>
+    <input formControlName="age" id="age" type="number">
+  </div>
+  <div>
+    <label for="gender">Gender:</label>
+    <select formControlName="gender" id="gender">
+      <option value="">Select Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <!-- Add more options as necessary -->
+    </select>
+  </div>
+  <button type="submit" [disabled]="!addForm.valid">Add Pessoa</button>
+</form>

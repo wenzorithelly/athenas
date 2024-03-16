@@ -1,0 +1,30 @@
+<h1>Athenas - Calcular Peso Ideal</h1>
+
+<!-- Pessoa Form -->
+<form [formGroup]="pessoaForm" (ngSubmit)="savePessoa()">
+  <input formControlName="name" placeholder="Name">
+  <input formControlName="age" type="number" placeholder="Age">
+  <select formControlName="gender">
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+  </select>
+  <input formControlName="height" type="number" placeholder="Height (for ideal weight calculation)">
+  <button type="submit">Save</button>
+  <button type="button" (click)="clearSelection()" *ngIf="selectedPessoa">Cancel Edit</button>
+</form>
+
+<!-- Ideal Weight Button -->
+<button (click)="calculateIdealWeight()" *ngIf="selectedPessoa">Calculate Ideal Weight</button>
+
+<!-- Search Field -->
+<div class="search-box">
+  <input [(ngModel)]="searchTerm" (keyup)="searchPessoas()" placeholder="Search names..." class="form-control">
+</div>
+
+<!-- Pessoa List -->
+<ul>
+  <li *ngFor="let pessoa of filteredPessoas" (click)="selectPessoa(pessoa)">
+    {{ pessoa.name }} - {{ pessoa.age }} - {{ pessoa.gender }}
+    <button (click)="deletePessoa(pessoa); $event.stopPropagation()">Delete</button>
+  </li>
+</ul>
