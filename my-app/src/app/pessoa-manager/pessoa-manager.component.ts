@@ -23,7 +23,7 @@ export class PessoaManagerComponent implements OnInit {
       name: ['', Validators.required],
       age: ['', Validators.required],
       gender: ['', Validators.required],
-      height: [''], // Assuming you have a height field for the ideal weight calculation
+      height: ['', Validators.required],
     });
   }
 
